@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://bbpgbcstfu4pw"]
+
+[ext_resource type="Script" uid="uid://b0mjgb0ani05s" path="res://Scripts/main_menu.gd" id="1_28flt"]
+
+[node name="MainMenu" type="CanvasLayer" unique_id=795112513]
+script = ExtResource("1_28flt")
+
+[node name="Control" type="Control" parent="." unique_id=396063901]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Control" unique_id=1528293370]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/CenterContainer" unique_id=59363388]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="Control/CenterContainer/VBoxContainer" unique_id=756385058]
+layout_mode = 2
+theme_override_font_sizes/font_size = 72
+text = "GAME"
+
+[node name="PlayButton" type="Button" parent="Control/CenterContainer/VBoxContainer" unique_id=1259727482]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Play"
+
+[node name="QuitButton" type="Button" parent="Control/CenterContainer/VBoxContainer" unique_id=342819574]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Quit"
+
+[connection signal="pressed" from="Control/CenterContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Control/CenterContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

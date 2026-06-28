@@ -1,0 +1,74 @@
+{
+	"categories": [
+		{
+			"uuid": "09691573-8921-4d09-bb76-3df3adf99d30",
+			"title": "Task",
+			"color": "569eff"
+		}
+	],
+	"stages": [
+		{
+			"uuid": "42535529-2522-452b-95f0-10e449ea39e6",
+			"title": "Todo",
+			"tasks": [
+				"dd8b237d-587c-4959-ac11-9acf7d1d9235",
+				"ba6027f1-7737-48a7-8395-ed7151c42c49",
+				"480cbad2-515b-489a-a300-8773438b6d2c",
+				"14772dca-8d83-4169-a9a1-43c844546516"
+			]
+		},
+		{
+			"uuid": "cb440301-be50-4d7e-ad4c-806ee2d84e35",
+			"title": "Doing",
+			"tasks": []
+		},
+		{
+			"uuid": "9874aba8-3056-4993-b005-1105e36e6b83",
+			"title": "Done",
+			"tasks": []
+		}
+	],
+	"tasks": [
+		{
+			"uuid": "dd8b237d-587c-4959-ac11-9acf7d1d9235",
+			"title": "Basic Weapon Manager",
+			"description": "",
+			"category": "09691573-8921-4d09-bb76-3df3adf99d30",
+			"steps": []
+		},
+		{
+			"uuid": "ba6027f1-7737-48a7-8395-ed7151c42c49",
+			"title": "Adding more weapons",
+			"description": "",
+			"category": "09691573-8921-4d09-bb76-3df3adf99d30",
+			"steps": []
+		},
+		{
+			"uuid": "480cbad2-515b-489a-a300-8773438b6d2c",
+			"title": "Adding weapon animations",
+			"description": "",
+			"category": "09691573-8921-4d09-bb76-3df3adf99d30",
+			"steps": []
+		},
+		{
+			"uuid": "14772dca-8d83-4169-a9a1-43c844546516",
+			"title": "Build a basic 3D world",
+			"description": "",
+			"category": "09691573-8921-4d09-bb76-3df3adf99d30",
+			"steps": []
+		}
+	],
+	"layout": {
+		"columns": [
+			[
+				"42535529-2522-452b-95f0-10e449ea39e6"
+			],
+			[
+				"cb440301-be50-4d7e-ad4c-806ee2d84e35"
+			],
+			[
+				"9874aba8-3056-4993-b005-1105e36e6b83"
+			]
+		]
+	}
+}

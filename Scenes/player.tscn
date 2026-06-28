@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://s8x04aexswjq"]
+
+[ext_resource type="Script" uid="uid://cdyeitod8takp" path="res://Scripts/player.gd" id="1_v0iea"]
+[ext_resource type="PackedScene" uid="uid://dvf0pfnlbwoyx" path="res://Assets/Weapon Pack/Models/GLTF format/pistol.glb" id="2_cvnsp"]
+[ext_resource type="Script" uid="uid://bbvdlinp3vlxs" path="res://Scripts/weapon_manager.gd" id="2_vgqql"]
+[ext_resource type="Script" uid="uid://fttd6u6lihlt" path="res://Scripts/weapon.gd" id="4_fkybt"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f60y1"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_f60y1"]
+
+[node name="Player" type="CharacterBody3D" unique_id=1984357748]
+script = ExtResource("1_v0iea")
+
+[node name="Collider" type="CollisionShape3D" parent="." unique_id=1051987480]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_f60y1")
+
+[node name="model" type="MeshInstance3D" parent="." unique_id=643398294]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_f60y1")
+
+[node name="Head" type="Node3D" parent="." unique_id=895699571]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.875575, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head" unique_id=604265679]
+
+[node name="InteractionRaycast" type="RayCast3D" parent="Head" unique_id=1979131623]
+target_position = Vector3(0, 0, -3)
+debug_shape_custom_color = Color(0, 0.35857758, 0.9151717, 1)
+debug_shape_thickness = 3
+
+[node name="Arms" type="Node3D" parent="Head" unique_id=854234999]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -0.833)
+
+[node name="WeaponHolder" type="Node3D" parent="Head/Arms" unique_id=815946836]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30889666, 0, 0.124052584)
+script = ExtResource("2_vgqql")
+
+[node name="pistol2" parent="Head/Arms/WeaponHolder" unique_id=3990806 instance=ExtResource("2_cvnsp")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
+script = ExtResource("4_fkybt")

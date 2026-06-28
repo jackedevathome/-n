@@ -1,0 +1,145 @@
+[gd_scene format=3 uid="uid://d1cga6w7ox7tx"]
+
+[ext_resource type="PackedScene" uid="uid://s8x04aexswjq" path="res://Scenes/player.tscn" id="1_a02cp"]
+[ext_resource type="Script" uid="uid://iev376xkldyw" path="res://Scripts/game_manager.gd" id="1_yq1aw"]
+[ext_resource type="Material" uid="uid://c1q8qp0hnt7mn" path="res://Resources/Materials/ground.tres" id="2_go701"]
+[ext_resource type="PackedScene" uid="uid://bdj3gqbll4aw0" path="res://Assets/Stylized Nature Megakit/glTF/CommonTree_3.gltf" id="3_0pcbe"]
+[ext_resource type="PackedScene" uid="uid://cbjh3xop807q4" path="res://Assets/Stylized Nature Megakit/glTF/CommonTree_2.gltf" id="4_axeuq"]
+[ext_resource type="PackedScene" uid="uid://dnbq70a03cs1b" path="res://Assets/Stylized Nature Megakit/glTF/CommonTree_5.gltf" id="5_1cojt"]
+[ext_resource type="PackedScene" uid="uid://csboyd6uorkkg" path="res://Assets/Stylized Nature Megakit/glTF/DeadTree_3.gltf" id="6_yq1aw"]
+[ext_resource type="PackedScene" uid="uid://200e3e24ortj" path="res://Assets/Stylized Nature Megakit/glTF/DeadTree_2.gltf" id="7_pyn1s"]
+[ext_resource type="PackedScene" uid="uid://bei8ab1uoj5w8" path="res://Assets/Stylized Nature Megakit/glTF/Flower_3_Group.gltf" id="8_no8kt"]
+[ext_resource type="PackedScene" uid="uid://bjyvra0ptfdg5" path="res://Assets/Stylized Nature Megakit/glTF/Flower_4_Group.gltf" id="9_xbk3s"]
+[ext_resource type="PackedScene" uid="uid://bqcknxq16gkjg" path="res://Assets/Stylized Nature Megakit/glTF/Flower_4_Single.gltf" id="10_i4fjy"]
+[ext_resource type="PackedScene" uid="uid://bnngfwrvq0vj8" path="res://Assets/Stylized Nature Megakit/glTF/Grass_Common_Short.gltf" id="11_pt3ps"]
+[ext_resource type="PackedScene" uid="uid://ba3xwxsjvca1l" path="res://Assets/Stylized Nature Megakit/glTF/Pebble_Round_1.gltf" id="12_hmc15"]
+[ext_resource type="PackedScene" uid="uid://brnpvrit8ylbw" path="res://Assets/Stylized Nature Megakit/glTF/Pebble_Round_4.gltf" id="13_dt0r1"]
+[ext_resource type="PackedScene" uid="uid://b1v0shr4hvms6" path="res://Assets/Stylized Nature Megakit/glTF/Pine_4.gltf" id="14_qebug"]
+[ext_resource type="PackedScene" uid="uid://d1dc746pnvum4" path="res://Assets/Stylized Nature Megakit/glTF/Pine_5.gltf" id="15_o2rbt"]
+[ext_resource type="PackedScene" uid="uid://bejfb7u736vsa" path="res://Assets/Stylized Nature Megakit/glTF/Rock_Medium_1.gltf" id="16_1vso6"]
+[ext_resource type="PackedScene" uid="uid://2qsnwpvab315" path="res://Assets/Stylized Nature Megakit/glTF/TwistedTree_1.gltf" id="17_3ua1v"]
+[ext_resource type="PackedScene" uid="uid://c1ccad2vfimsj" path="res://Assets/Stylized Nature Megakit/glTF/Rock_Medium_3.gltf" id="18_r0ikl"]
+[ext_resource type="PackedScene" uid="uid://ccx3dt7c2hf" path="res://Assets/Weapon Pack/Models/GLTF format/sniper.glb" id="19_1cojt"]
+[ext_resource type="PackedScene" uid="uid://5odbgfo2waro" path="res://Scenes/canvas_layer.tscn" id="20_1cojt"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1cojt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1cojt"]
+size = Vector3(0.072265625, 0.26678467, 1.039093)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_go701"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_5a7ea"]
+sky_material = SubResource("ProceduralSkyMaterial_go701")
+
+[sub_resource type="Environment" id="Environment_8j60k"]
+background_mode = 2
+sky = SubResource("Sky_5a7ea")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_yp4wr"]
+size = Vector2(150, 150)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_a02cp"]
+data = PackedVector3Array(75, 0, 75, -75, 0, 75, 75, 0, -75, -75, 0, 75, -75, 0, -75, 75, 0, -75)
+
+[node name="world" type="Node3D" unique_id=1907399199]
+script = ExtResource("1_yq1aw")
+
+[node name="Sniper" type="RigidBody3D" parent="." unique_id=788002082 groups=["Interactable"]]
+transform = Transform3D(0.48810667, 0.81626886, -0.30896196, 0.4178284, 0.09225418, 0.90382993, 0.76627105, -0.5702584, -0.29603046, 4.0740933, 8.175379, -9.9551735)
+mass = 2.0
+physics_material_override = SubResource("PhysicsMaterial_1cojt")
+continuous_cd = true
+contact_monitor = true
+max_contacts_reported = 20
+
+[node name="sniper2" parent="Sniper" unique_id=246662871 instance=ExtResource("19_1cojt")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sniper" unique_id=811734911]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.14004517, -0.001907587)
+shape = SubResource("BoxShape3D_1cojt")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=556866069]
+environment = SubResource("Environment_8j60k")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=437637679]
+transform = Transform3D(-0.2384542, -0.7779162, 0.5813657, 0.14205578, 0.5642554, 0.81328714, -0.9607079, 0.2765181, -0.024041653, 0, 17.536037, 0)
+shadow_enabled = true
+
+[node name="Player" parent="." unique_id=1984357748 instance=ExtResource("1_a02cp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.814571, 0)
+can_sprint = true
+can_freefly = true
+base_speed = 20.0
+sprint_speed = 35.0
+freefly_speed = 40.0
+
+[node name="ground" type="StaticBody3D" parent="." unique_id=418381290]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ground" unique_id=1663548514]
+material_override = ExtResource("2_go701")
+mesh = SubResource("PlaneMesh_yp4wr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ground" unique_id=697785799]
+shape = SubResource("ConcavePolygonShape3D_a02cp")
+
+[node name="Objects" type="Node3D" parent="ground" unique_id=1762717646]
+
+[node name="CommonTree_32" parent="ground/Objects" unique_id=779649220 instance=ExtResource("3_0pcbe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.679966, 0.24277583, 34.837383)
+
+[node name="CommonTree_22" parent="ground/Objects" unique_id=987426870 instance=ExtResource("4_axeuq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.241226, 0.2427682, -15.9191265)
+
+[node name="CommonTree_52" parent="ground/Objects" unique_id=152683212 instance=ExtResource("5_1cojt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.640833, 0.24277201, 42.80911)
+
+[node name="DeadTree_32" parent="ground/Objects" unique_id=1750521495 instance=ExtResource("6_yq1aw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.679394, 0.3355584, -42.88799)
+
+[node name="DeadTree_22" parent="ground/Objects" unique_id=720968520 instance=ExtResource("7_pyn1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.151295, 0.3355584, -53.13867)
+
+[node name="Flower_3_Group2" parent="ground/Objects" unique_id=1632121613 instance=ExtResource("8_no8kt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.352985, 0.03458359, 5.3605714)
+
+[node name="Flower_4_Group2" parent="ground/Objects" unique_id=1169471394 instance=ExtResource("9_xbk3s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.31954956, 0.056997612, -12.3200655)
+
+[node name="Flower_4_Single2" parent="ground/Objects" unique_id=1955082079 instance=ExtResource("10_i4fjy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8359413, 0.030434297, 4.9890122)
+
+[node name="Grass_Common_Short2" parent="ground/Objects" unique_id=1743694642 instance=ExtResource("11_pt3ps")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.528057, 0.02238903, 2.300516)
+
+[node name="Pebble_Round_12" parent="ground/Objects" unique_id=1732926193 instance=ExtResource("12_hmc15")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.120113, 0.007801786, 16.753141)
+
+[node name="Pebble_Round_42" parent="ground/Objects" unique_id=1463827319 instance=ExtResource("13_dt0r1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.534397, 0.0056357435, -10.0122)
+
+[node name="Pine_42" parent="ground/Objects" unique_id=538910489 instance=ExtResource("14_qebug")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.9474, 0.23509243, 33.436367)
+
+[node name="Pine_52" parent="ground/Objects" unique_id=1133777995 instance=ExtResource("15_o2rbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.732876, 0.23508862, 43.311802)
+
+[node name="Rock_Medium_12" parent="ground/Objects" unique_id=1313120359 instance=ExtResource("16_1vso6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.903545, 0.27113515, -49.51786)
+
+[node name="TwistedTree_12" parent="ground/Objects" unique_id=831782984 instance=ExtResource("17_3ua1v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.165733, 0.20147851, -42.062984)
+
+[node name="Rock_Medium_32" parent="ground/Objects" unique_id=1883438413 instance=ExtResource("18_r0ikl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.42065, 0.31564823, -43.713024)
+
+[node name="Rock_Medium_13" parent="ground/Objects" unique_id=1879759643 instance=ExtResource("16_1vso6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.029842, 0.27113515, -55.014374)
+
+[node name="CanvasLayer" parent="." unique_id=2091859799 instance=ExtResource("20_1cojt")]
+
+[editable path="Sniper/sniper2"]
